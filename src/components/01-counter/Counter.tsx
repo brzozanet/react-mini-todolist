@@ -15,12 +15,16 @@ export default function Counter() {
     setCounter(0);
   };
 
+  const handleConunterButton = (value: number) => {
+    setCounter((prevState) => prevState + value);
+  };
+
   return (
     <>
       <h3>Projekt 1: Licznik ze stanem (React + TypeScript)</h3>
-      <button onClick={() => handleButtonDown()}>-</button> {counter}{" "}
-      <button onClick={() => handleButtonUp()}>+</button>{" "}
-      <button onClick={() => handleButtonReset()}>wyzeruj</button>
+      <button onClick={() => handleConunterButton(-1)}>-</button> {counter}{" "}
+      <button onClick={() => handleConunterButton(1)}>+</button>{" "}
+      <button onClick={() => setCounter(0)}>wyzeruj</button>
     </>
   );
 }
