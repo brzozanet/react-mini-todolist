@@ -9,7 +9,7 @@ export default function Counter() {
 
   return (
     <>
-      <h3>Projekt 1: Licznik ze stanem (React + TypeScript)</h3>
+      <h2>Projekt 1: Licznik ze stanem (React + TypeScript)</h2>
       <button onClick={() => updateCounter(-1)}>-</button> {counter}{" "}
       <button onClick={() => updateCounter(1)}>+</button>{" "}
       <button onClick={() => setCounter(0)}>wyzeruj</button>
