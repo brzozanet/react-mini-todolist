@@ -1,7 +1,13 @@
-export default function Input(props: { onChange; onSubmit; inputValue }) {
+import type { OnChangeHandler, OnSubmitHandler } from "../types/types";
+
+export default function Input(props: {
+  onChange: OnChangeHandler;
+  onSubmit: OnSubmitHandler;
+  inputValue: string;
+}) {
   return (
     <>
-      <form action="" onSubmit={props.onSubmit}>
+      <form onSubmit={props.onSubmit}>
         <input
           type="text"
           name="todo"

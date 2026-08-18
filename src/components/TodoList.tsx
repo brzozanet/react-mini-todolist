@@ -11,7 +11,7 @@ export default function TodoList() {
     setInputValue(event.target.value);
   };
 
-  const addNewTodo = (event: React.ChangeEvent<HTMLFormElement>) => {
+  const addNewTodo = (event: React.SubmitEvent<HTMLFormElement>) => {
     event.preventDefault();
     setTodos((prevTodos) => {
       return [
