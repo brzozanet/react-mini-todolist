@@ -50,18 +50,24 @@ export default function TodoList() {
         Lista zadań (do zrobienia: {activeTodos.length}, łącznie: {todos.length}
         )
       </h3>
-      <ul>
-        {todos.map((todo) => (
-          <li key={todo.id}>
-            {todo.content}{" "}
-            {!todo.isDone ? (
-              <button onClick={() => markTodoAsDone(todo.id)}>zrobione</button>
-            ) : (
-              <button onClick={() => deleteTodo(todo.id)}>usuń</button>
-            )}
-          </li>
-        ))}
-      </ul>
+      {todos.length > 0 ? (
+        <ul>
+          {todos.map((todo) => (
+            <li key={todo.id}>
+              {todo.content}{" "}
+              {!todo.isDone ? (
+                <button onClick={() => markTodoAsDone(todo.id)}>
+                  zrobione
+                </button>
+              ) : (
+                <button onClick={() => deleteTodo(todo.id)}>usuń</button>
+              )}
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>Brak zadań</p>
+      )}
     </>
   );
 }

@@ -21,7 +21,9 @@ export default function Input(props: {
           onChange={props.onChange}
           value={props.inputValue}
         />
-        <button type="submit">dodaj zadanie</button>
+        <button type="submit" disabled={!props.inputValue}>
+          dodaj zadanie
+        </button>
       </form>
     </>
   );
