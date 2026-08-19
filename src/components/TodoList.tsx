@@ -24,6 +24,19 @@ export default function TodoList() {
     setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
   };
 
+  const markTodoAsDone = (id: string) => {
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) => {
+        if (todo.id === id) {
+          return { ...todo, isDone: true };
+        }
+        return todo;
+      }),
+    );
+  };
+
+  const activeTodos = todos.filter((todo) => todo.isDone === false);
+
   return (
     <>
       <p>Todo lista, która sprawi mi mnóstwo radości 😀</p>
@@ -33,12 +46,19 @@ export default function TodoList() {
         onSubmit={addNewTodo}
         inputValue={inputValue}
       />
-      <h3>Lista zadań (łącznie: {todos.length}, do zrobienia:)</h3>
+      <h3>
+        Lista zadań (do zrobienia: {activeTodos.length}, łącznie: {todos.length}
+        )
+      </h3>
       <ul>
         {todos.map((todo) => (
           <li key={todo.id}>
             {todo.content}{" "}
-            <button onClick={() => deleteTodo(todo.id)}>usuń</button>
+            {!todo.isDone ? (
+              <button onClick={() => markTodoAsDone(todo.id)}>zrobione</button>
+            ) : (
+              <button onClick={() => deleteTodo(todo.id)}>usuń</button>
+            )}
           </li>
         ))}
       </ul>
